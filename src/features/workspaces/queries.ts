@@ -45,13 +45,14 @@ interface GetWorkspaceProps {
 
 
 export const getWorkspace = async ({ workspaceId}: GetWorkspaceProps ) => {
-    try {
-        const { databases, account } = await createSessionClient();
+    const { databases, account } = await createSessionClient();
     const user = await account.get();
 
     const member = await GetMember({databases, userId: user.$id, workspaceId });
         
-    if (!member) return null;
+    if (!member) {
+        throw new Error("Unaturhorized");
+    }
         
     const workspace = await databases.getDocument<Workspace>(
         DATABASE_ID,
@@ -59,10 +60,7 @@ export const getWorkspace = async ({ workspaceId}: GetWorkspaceProps ) => {
         workspaceId,
     );
         return workspace;
-    }
-    catch (error) {
-        return null;
-    }
+    
 }
 
 interface GetWorkspaceInfoProps { 
