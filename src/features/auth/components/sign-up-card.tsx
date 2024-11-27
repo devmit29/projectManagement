@@ -14,6 +14,7 @@ import Link from "next/link";
 import { Form, FormControl, FormField, FormItem, FormMessage } from "@/components/ui/form";
 import { registerSchema } from "../schemas";
 import { useRegister } from "../api/use-register";
+import { signUpWithGithub, signUpWithGoogle } from "@/lib/oauth";
 
 
 
@@ -113,7 +114,8 @@ export const SignUpCard = () => {
                 <DottedSeperator />
             </div>
                 <CardContent className="p-7 flex flex-col gap-y-4">
-                    <Button
+                <Button
+                        onClick={() => signUpWithGoogle()} 
                         disabled={isPending}
                         variant={'secondary'}
                         size='lg'
@@ -122,7 +124,8 @@ export const SignUpCard = () => {
                         <FcGoogle className="size-5 mr-2" />
                         Sign Up With Google
                     </Button>
-                    <Button
+                <Button
+                        onClick={() => signUpWithGithub()}  
                         disabled={isPending}
                         variant={'secondary'}
                         size='lg'
