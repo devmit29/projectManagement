@@ -18,6 +18,8 @@ export const TaskDate = ({ value, className }: TaskDateProps) => {
         textColor = "text-orange-500";
     } else if(diffInDays < 14){
         textColor = "text-yellow-500";
+    } else {
+        textColor = "text-green-500";
     }
 
     return (
