@@ -18,10 +18,9 @@ export async function GET(request: NextRequest) {
     cookies().set(AUTH_COOKIE, session.secret, {
     path: "/",
     httpOnly: true,
-    sameSite: "strict",
+    sameSite: "lax",
     secure: true,
     });
     
-    console.log("redirectting to..", request.nextUrl.origin);
     return NextResponse.redirect(`${request.nextUrl.origin}/`);
 }
