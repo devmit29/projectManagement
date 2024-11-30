@@ -21,6 +21,7 @@ export async function GET(request: NextRequest) {
     sameSite: "strict",
     secure: true,
     });
-
+    
+    console.log("redirectting to..", request.nextUrl.origin);
     return NextResponse.redirect(`${request.nextUrl.origin}/`);
 }
