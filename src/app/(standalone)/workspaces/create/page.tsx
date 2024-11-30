@@ -1,3 +1,4 @@
+export const dynamic = 'force-dynamic'
 import { getCurrent } from "@/features/auth/queries";
 import { CreateWorkspaceForm } from "@/features/workspaces/components/create-workspace-form";
 import { redirect } from "next/navigation";

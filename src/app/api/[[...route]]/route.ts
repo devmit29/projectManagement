@@ -1,3 +1,4 @@
+export const dynamic = 'force-dynamic'
 import { Hono } from 'hono';
 import { handle } from 'hono/vercel';
 import auth from "@/features/auth/server/route";
