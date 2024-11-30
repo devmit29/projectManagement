@@ -1,10 +1,10 @@
 "use client";
 
 import { Loader, LogOut } from "lucide-react";
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import { Avatar, AvatarFallback } from "@/components/ui/avatar";
 import { DottedSeperator } from "@/components/dotted-seperated";
 
-import { uselogout } from "../api/use-logout";
+import { useLogout } from "../api/use-logout";
 import { UseCurrent } from "../api/use-current";
 import { DropdownMenu, DropdownMenuContent, DropdownMenuTrigger } from "@/components/ui/dropdown-menu";
 import { DropdownMenuItem } from "@radix-ui/react-dropdown-menu";
@@ -12,7 +12,7 @@ import { DropdownMenuItem } from "@radix-ui/react-dropdown-menu";
 
 export const UserButton = () => {
     const { data: user, isLoading } = UseCurrent();
-    const { mutate: logout } = uselogout();
+    const { mutate: logout } = useLogout();
     if (isLoading) {
         return (
             <div className="size-10 rounded-full flex items-center justify-center bg-neutral-200 border border-neutral-300">

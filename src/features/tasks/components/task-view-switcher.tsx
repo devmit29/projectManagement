@@ -17,8 +17,15 @@ import { useCallback } from "react"
 import { TaskStatus } from "../types"
 import {useBulkUpdateTasks } from "../api/use-bulk-update-task"
 import { DataCalendar } from "./data-calendar"
+import { useProjectId } from "@/features/projects/hooks/use-project-id"
 
-export const TaskViewSwitcher = () => {
+interface TaskViewSwitcherProps {
+    hideProjectFilter?: boolean;
+ }
+
+export const TaskViewSwitcher = ({
+    hideProjectFilter,
+}: TaskViewSwitcherProps) => {
     const [{
         status,
         assigneeId,
@@ -31,6 +38,7 @@ export const TaskViewSwitcher = () => {
     });
 
     const workspaceId = useWorkspaceId();
+    const paramProjectId = useProjectId();
     const { open } = useCreateTaskModal();
 
     const { mutate: bulkUpdate } = useBulkUpdateTasks();
@@ -40,7 +48,7 @@ export const TaskViewSwitcher = () => {
         isLoading: isLoadingTasks
     } = useGetTasks({
         workspaceId,
-        projectId,
+        projectId: projectId ?? paramProjectId,
         assigneeId,
         status,
         dueDate
@@ -88,7 +96,7 @@ export const TaskViewSwitcher = () => {
                     </Button>
                 </div>
                 <DottedSeperator className="my-4" />
-                    <DataFilters/>
+                <DataFilters hideProjectFilter={hideProjectFilter} />
                 <DottedSeperator className="my-4" />
                 {isLoadingTasks ? (
                     <div className="w-full border rounded-lg h-[200px] flex flex-col items-center justify-center"> 

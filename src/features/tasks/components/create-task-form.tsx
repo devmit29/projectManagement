@@ -9,8 +9,6 @@ import { DottedSeperator } from "@/components/dotted-seperated";
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
-import { useRef } from "react";
-import { useRouter } from "next/navigation";
 import { cn } from "@/lib/utils";
 import { useWorkspaceId } from "@/features/workspaces/hooks/use-workspace-id";
 import { useCreateTask } from "../api/use-create-task";
@@ -30,8 +28,6 @@ interface CreateTaskFormProps {
 export const CreateTaskForm = ({ onCancel, projectOptions, memberOptions }: CreateTaskFormProps) => {
     const workspaceId = useWorkspaceId();
     const { mutate, isPending } = useCreateTask();
-    const router = useRouter();
-    const inputRef = useRef<HTMLInputElement>(null);
     const form = useForm<z.infer<typeof createTaskSchema>>({
         resolver: zodResolver(createTaskSchema.omit({workspaceId: true})),
         defaultValues: {
@@ -45,7 +41,7 @@ export const CreateTaskForm = ({ onCancel, projectOptions, memberOptions }: Crea
             ...values, workspaceId
         } },
             {
-                onSuccess: ({data}) => {
+                onSuccess: () => {
                     form.reset();
                     onCancel?.();
                     //TODO: redirect to new task

@@ -1,4 +1,4 @@
-"use client";
+
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { InferResponseType} from "hono";
 import { client } from "@/lib/rpc";
@@ -6,7 +6,7 @@ import { toast } from "sonner";
 
 type ResponseType = InferResponseType<typeof client.api.auth.logout["$post"]>;
 
-export const uselogout = () => {
+export const useLogout = () => {
     const queryClient = useQueryClient();
 
     const mutation = useMutation<ResponseType, Error>(

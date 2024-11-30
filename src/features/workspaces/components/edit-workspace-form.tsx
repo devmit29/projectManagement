@@ -12,12 +12,11 @@ import { Button } from "@/components/ui/button";
 import { useRef } from "react";
 import { Avatar, AvatarFallback } from "@/components/ui/avatar";
 import Image from "next/image";
-import { ArrowLeftIcon, CopyIcon, Delete, ImageIcon } from "lucide-react";
-import { handle } from "hono/vercel";
+import { ArrowLeftIcon, CopyIcon, ImageIcon } from "lucide-react";
 import { useRouter } from "next/navigation";
 import { cn } from "@/lib/utils";
 import { Workspace } from "../types";
-import { useupdateWorkspace } from "../api/use-update-workspace";
+import { useUpdateWorkspace } from "../api/use-update-workspace";
 import { useConfirm } from "@/hooks/use-confirm";
 import { useDeleteWorkspace } from "../api/use-delete-workspace";
 import { toast } from "sonner";
@@ -30,7 +29,7 @@ interface editWorkspaceFormProps {
 
 export const EditWorkspaceForm = ({ onCancel, initialValues }: editWorkspaceFormProps) => {
     const router = useRouter();
-    const { mutate, isPending } = useupdateWorkspace();
+    const { mutate, isPending } = useUpdateWorkspace();
     const { mutate: deleteWorkspace, isPending: isDeleteWorkspace } = useDeleteWorkspace();
     const { mutate: resetInviteCode, isPending: isResettingInviteCode } = useResetInviteCode();
 
@@ -91,13 +90,7 @@ export const EditWorkspaceForm = ({ onCancel, initialValues }: editWorkspaceForm
         mutate({
             form: finalValues,
             param: { workspaceId: initialValues.$id },
-        },
-            {
-                onSuccess: ({ }) => {
-                    form.reset();
-                    
-                }
-            });
+        });
     };
 
     const handleImageChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -120,7 +113,7 @@ export const EditWorkspaceForm = ({ onCancel, initialValues }: editWorkspaceForm
             <ResetDialog />
             <Card className="w-full h-full shadow-none border-none">
                 <CardHeader className="flex flex-row items-centergap-x-4 p-7 space-y-0">
-                    <Button className="mr-2" size="sm" variant={"secondary"} onClick={onCancel ? onCancel : () => router.push(`/workspaces/${initialValues.$id}`)}>
+                    <Button className="mr-2 bg-neutral-100" size="sm" variant={"secondary"} onClick={onCancel ? onCancel : () => router.push(`/workspaces/${initialValues.$id}`)}>
                         <ArrowLeftIcon className="size-4" />
                     </Button>
                     <CardTitle className="text-xl font-bold">

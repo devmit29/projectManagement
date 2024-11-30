@@ -59,12 +59,13 @@ export const MembersList = () => {
     return ( 
         <Card className="w-full h-full border-none shadow-none">
             <ConfirmDialog/>
-            <CardHeader className="felx flex-row items-centergap-x-4 p-7 space-y-0">
-                <Button asChild variant="secondary" size="sm">
+            <CardHeader className="felx flex-row items-center font-bold text-lg gap-x-4 p-7 space-y-0">
+                <Button asChild variant="secondary" size="sm" className="bg-neutral-100">
                     <Link href={`/workspaces/${workspaceId}`}>
                         <ArrowLeftIcon className="size-4 mr-2" />
                     </Link>
                 </Button>
+                Member List
             </CardHeader>
             <div className="px-7">
                 <DottedSeperator/>

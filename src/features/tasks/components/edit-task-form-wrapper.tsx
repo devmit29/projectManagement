@@ -2,8 +2,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { useGetMembers } from "@/features/members/api/use-get-members";
 import { useWorkspaceId } from "@/features/workspaces/hooks/use-workspace-id";
 import { Loader } from "lucide-react";
-import { CreateTaskForm } from "./create-task-form";
-import { usegetProjects } from "@/features/projects/api/use-get-projects";
+import { useGetProjects } from "@/features/projects/api/use-get-projects";
 import { useGetTask } from "../api/use-get-task";
 import { EditTaskForm } from "./edit-task-form";
 
@@ -17,7 +16,7 @@ export const EditTaskFormWrapper = ({ onCancel, id }: EditTaskFormWrapperProps) 
 
     const { data: initialValues, isLoading: isLoadingTask } = useGetTask({ taskId: id });
 
-    const { data: projects, isLoading: isLoadingProjects} = usegetProjects({workspaceId});
+    const { data: projects, isLoading: isLoadingProjects} = useGetProjects({workspaceId});
     const { data: members, isLoading: isLoadingMembers } = useGetMembers({ workspaceId });
     
     const projectOptions = projects?.documents.map((project) => ({

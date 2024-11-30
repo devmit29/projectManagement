@@ -14,7 +14,6 @@ import { useRef } from "react";
 import { Avatar, AvatarFallback } from "@/components/ui/avatar";
 import Image from "next/image";
 import { ImageIcon } from "lucide-react";
-import { handle } from "hono/vercel";
 import { useRouter } from "next/navigation";
 import { cn } from "@/lib/utils";
 

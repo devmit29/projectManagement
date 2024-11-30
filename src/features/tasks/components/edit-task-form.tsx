@@ -9,11 +9,8 @@ import { DottedSeperator } from "@/components/dotted-seperated";
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
-import { useRef } from "react";
-import { useRouter } from "next/navigation";
 import { cn } from "@/lib/utils";
-import { useWorkspaceId } from "@/features/workspaces/hooks/use-workspace-id";
- import { DatePicker } from "@/components/date-picker";
+import { DatePicker } from "@/components/date-picker";
 import { Select, SelectContent, SelectItem, SelectTrigger } from "@/components/ui/select";
 import { SelectValue } from "@radix-ui/react-select";
 import { MemberAvatar } from "@/features/members/components/member-avatar";
@@ -29,10 +26,7 @@ interface EditTaskFormProps {
 }
 
 export const EditTaskForm = ({ onCancel, projectOptions, memberOptions, initialValues }: EditTaskFormProps) => {
-    const workspaceId = useWorkspaceId();
     const { mutate, isPending } = useUpdateTask();
-    const router = useRouter();
-    const inputRef = useRef<HTMLInputElement>(null);
     const form = useForm<z.infer<typeof createTaskSchema>>({
         resolver: zodResolver(createTaskSchema.omit({workspaceId: true, description: true})),
         defaultValues: {
@@ -44,9 +38,9 @@ export const EditTaskForm = ({ onCancel, projectOptions, memberOptions, initialV
     const onSubmit = (values: z.infer<typeof createTaskSchema>) => {
         mutate({json: values, param: {taskId: initialValues.$id} },
             {
-                onSuccess: ({data}) => {
+                onSuccess: () => {
                     form.reset();
-                    onCancel?.();
+                    onCancel?.(); 
                 }
             });
     };

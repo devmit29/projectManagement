@@ -1,6 +1,6 @@
 import { Select, SelectContent, SelectItem, SelectSeparator, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { useGetMembers } from "@/features/members/api/use-get-members";
-import { usegetProjects } from "@/features/projects/api/use-get-projects";
+import { useGetProjects } from "@/features/projects/api/use-get-projects";
 import { useWorkspaceId } from "@/features/workspaces/hooks/use-workspace-id";
 import { FolderIcon, ListChecksIcon, UserIcon } from "lucide-react";
 import { TaskStatus } from "../types";
@@ -14,7 +14,7 @@ interface DataFiltersProps {
 export const DataFilters = ({ hideProjectFilter }: DataFiltersProps) => {
     const workspaceId = useWorkspaceId();
 
-    const {data: projects, isLoading: isLoadingProjects} = usegetProjects({workspaceId});
+    const {data: projects, isLoading: isLoadingProjects} = useGetProjects({workspaceId});
     const { data: members, isLoading: isLoadingMembers } = useGetMembers({ workspaceId });
     
     const isLoading = isLoadingProjects || isLoadingMembers;
@@ -90,9 +90,9 @@ export const DataFilters = ({ hideProjectFilter }: DataFiltersProps) => {
                     ))}
                 </SelectContent>
             </Select>
-            <Select
+            {!hideProjectFilter && (<Select
                 defaultValue={projectId ?? undefined}
-                onValueChange={(value) => onProjectChange(value)}                
+                onValueChange={(value) => onProjectChange(value)}
             >
                 <SelectTrigger className="h-8 w-full lg:w-auto">
                     <div className="flex items-centerpr-2">
@@ -109,7 +109,7 @@ export const DataFilters = ({ hideProjectFilter }: DataFiltersProps) => {
                         </SelectItem>
                     ))}
                 </SelectContent>
-            </Select>
+            </Select>)}
             <DatePicker
                 placeholder="Due Date"
                 className="h-8 w-full lg:w-auto"

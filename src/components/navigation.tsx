@@ -4,7 +4,6 @@ import { cn } from '@/lib/utils';
 import {SettingsIcon, UserIcon } from 'lucide-react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import path from 'path';
 import {GoCheckCircle, GoCheckCircleFill, GoHome, GoHomeFill} from 'react-icons/go';
 const routes = [
     {
@@ -20,16 +19,16 @@ const routes = [
         activation: GoCheckCircleFill,
     },
     {
-        label: 'Settings',
-        href: "/settings",
-        icon: SettingsIcon,
-        activation: SettingsIcon,
-    },
-    {
         label: 'Members',
         href: "/members",
         icon: UserIcon,
         activation: UserIcon
+    },
+    {
+        label: 'Settings',
+        href: "/settings",
+        icon: SettingsIcon,
+        activation: SettingsIcon,
     },
 ];
 

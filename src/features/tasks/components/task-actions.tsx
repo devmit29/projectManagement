@@ -1,7 +1,7 @@
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@/components/ui/dropdown-menu";
 import { useConfirm } from "@/hooks/use-confirm";
 import { ExternalLinkIcon, PencilIcon, TrashIcon } from "lucide-react";
-import { usedeleteTask } from "../api/use-delete-task";
+import { useDeleteTask } from "../api/use-delete-task";
 import { useRouter } from "next/navigation";
 import { useWorkspaceId } from "@/features/workspaces/hooks/use-workspace-id";
 import { useEditTaskModal } from "../hooks/use-edit-task-modal";
@@ -27,7 +27,7 @@ export const TaskActions = ({
         "Are you sure you want to delete this task?",
         "destructive"
     )
-    const { mutate, isPending } = usedeleteTask();
+    const { mutate, isPending } = useDeleteTask();
 
     const onDelete = async () => {
         const ok = await confirm();

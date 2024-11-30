@@ -4,7 +4,6 @@ import {
     Users,
     Client,
     Account,
-    Storage,
     Databases,
 } from "node-appwrite";
 import { AUTH_COOKIE } from "@/features/auth/constants";

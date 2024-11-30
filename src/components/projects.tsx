@@ -1,6 +1,6 @@
 "use client";
 
-import { usegetProjects } from "@/features/projects/api/use-get-projects";
+import { useGetProjects } from "@/features/projects/api/use-get-projects";
 import { ProjectAvatar } from "@/features/projects/components/project-avatar";
 import { useCreateProjectModal } from "@/features/projects/hooks/use-create-project-modal";
 import { useWorkspaceId } from "@/features/workspaces/hooks/use-workspace-id";
@@ -13,7 +13,7 @@ export const Projects = () => {
     const pathname = usePathname();
     const { open } = useCreateProjectModal();
     const workspaceId = useWorkspaceId();
-    const { data } = usegetProjects({
+    const { data } = useGetProjects({
         workspaceId,
     });
 
