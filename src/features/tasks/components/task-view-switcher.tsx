@@ -1,6 +1,6 @@
 "use client"
 
-import { DottedSeperator } from "@/components/dotted-seperated"
+import { DottedSeperator } from "@/components/dotted-seperater"
 import { Button } from "@/components/ui/button"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { Loader, PlusIcon } from "lucide-react"

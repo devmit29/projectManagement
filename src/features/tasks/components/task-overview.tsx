@@ -1,7 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { TASK } from "../types";
 import { PencilIcon } from "lucide-react";
-import { DottedSeperator } from "@/components/dotted-seperated";
+import { DottedSeperator } from "@/components/dotted-seperater";
 import { OverviewProperty } from "./overview-property";
 import { MemberAvatar } from "@/features/members/components/member-avatar";
 import { TaskDate } from "./task-date";

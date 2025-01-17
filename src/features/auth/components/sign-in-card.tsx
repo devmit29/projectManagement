@@ -6,7 +6,7 @@ import {zodResolver} from "@hookform/resolvers/zod";
 import { FcGoogle } from "react-icons/fc";
 import { FaGithub } from "react-icons/fa";
 
-import { DottedSeperator } from "@/components/dotted-seperated";
+import { DottedSeperator } from "@/components/dotted-seperater";
 
 import { Button } from "@/components/ui/button";
 

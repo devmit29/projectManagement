@@ -1,6 +1,6 @@
 "use client"
 
-import { DottedSeperator } from "@/components/dotted-seperated";
+import { DottedSeperator } from "@/components/dotted-seperater";
 import { PageError } from "@/components/page-error";
 import { PageLoader } from "@/components/page-loader";
 import { useGetTask } from "@/features/tasks/api/use-get-task";

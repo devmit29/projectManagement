@@ -2,7 +2,7 @@
 
 import { Loader, LogOut } from "lucide-react";
 import { Avatar, AvatarFallback } from "@/components/ui/avatar";
-import { DottedSeperator } from "@/components/dotted-seperated";
+import { DottedSeperator } from "@/components/dotted-seperater";
 
 import { useLogout } from "../api/use-logout";
 import { UseCurrent } from "../api/use-current";

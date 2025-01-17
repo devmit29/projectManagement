@@ -1,7 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { TASK } from "../types";
 import { PencilIcon, XIcon } from "lucide-react";
-import { DottedSeperator } from "@/components/dotted-seperated";
+import { DottedSeperator } from "@/components/dotted-seperater";
 import { useState } from "react";
 import { useUpdateTask } from "../api/use-update-task";
 import { Textarea } from "@/components/ui/textarea";

@@ -13,7 +13,7 @@ const AuthLayout = ({ children }: AuthLayoutProps) => {
 
     const pathname = usePathname();
     return (
-        <main className='bg-neutral-100 mih-h-screen'>
+        <main className='bg-neutral-100 min-h-screen'>
             <div className='mx-auto max-w-screen-2xl p-4'>
                 <nav className='flex justify-between items-center'>
                 <Image src='/logo.svg' alt='Logo' width={152} height={56} />

@@ -8,7 +8,7 @@ import { Button } from "@/components/ui/button";
 import Link from "next/link";
 
 import { Card, CardContent, CardHeader } from "@/components/ui/card";
-import { DottedSeperator } from "@/components/dotted-seperated";
+import { DottedSeperator } from "@/components/dotted-seperater";
 import { Separator } from "@/components/ui/separator";
 
 import { useGetMembers } from "@/features/members/api/use-get-members";

@@ -1,6 +1,6 @@
 import Image from "next/image"
 import Link from "next/link"
-import { DottedSeperator } from "./dotted-seperated"
+import { DottedSeperator } from "./dotted-seperater"
 import { Navigation } from "./navigation"
 import { WorkSpaceSwitcher } from "./workspace-switcher"
 import { Projects } from "./projects"
