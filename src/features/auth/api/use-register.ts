@@ -8,8 +8,7 @@ type RequestType = InferRequestType<typeof client.api.auth.register["$post"]>;
 export const useRegister = () => { 
     const queryClient = useQueryClient();
     const mutation =
-        useMutation<
-        ResponseType, Error, RequestType>(
+        useMutation<ResponseType, Error, RequestType>(
         {
             mutationFn: async ({ json }) => {
                 const response = await client.api.auth.register["$post"]({ json });

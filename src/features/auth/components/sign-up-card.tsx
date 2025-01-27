@@ -2,7 +2,7 @@
 
 import { useForm } from "react-hook-form";
 import { z } from "zod";
-import {zodResolver} from "@hookform/resolvers/zod";
+import { zodResolver } from "@hookform/resolvers/zod";
 
 import { FcGoogle } from "react-icons/fc";
 import { FaGithub } from "react-icons/fa";
@@ -54,10 +54,10 @@ export const SignUpCard = () => {
                 </CardDescription>
             </CardHeader>
             <div className="px-7">
-                <DottedSeperator/>
+                <DottedSeperator />
             </div>
             <CardContent className="p-7">
-            <Form {...form}>
+                <Form {...form}>
                     <form className="space-y-4" onSubmit={form.handleSubmit(onSubmit)}>
                         <FormField
                             name="name"
@@ -97,55 +97,55 @@ export const SignUpCard = () => {
                                     <FormControl>
                                         <Input
                                             {...field}
-                                            type="pasword"
+                                            type="password"
                                             placeholder="Enter your password" />
                                     </FormControl>
                                     <FormMessage />
                                 </FormItem>
                             )}
                         />
-                    <Button disabled={isPending} type="submit" size="lg" className="w-full">
-                        Signup
-                    </Button>
+                        <Button disabled={isPending} type="submit" size="lg" className="w-full">
+                            Signup
+                        </Button>
                     </form>
-                    </Form>
+                </Form>
             </CardContent>
             <div className="p-7">
                 <DottedSeperator />
             </div>
-                <CardContent className="p-7 flex flex-col gap-y-4">
+            <CardContent className="p-7 flex flex-col gap-y-4">
                 <Button
-                        onClick={() => signUpWithGoogle()} 
-                        disabled={isPending}
-                        variant={'secondary'}
-                        size='lg'
-                        className="w-full"
-                    >
-                        <FcGoogle className="size-5 mr-2" />
-                        Sign Up With Google
-                    </Button>
+                    onClick={() => signUpWithGoogle()}
+                    disabled={isPending}
+                    variant={'secondary'}
+                    size='lg'
+                    className="w-full"
+                >
+                    <FcGoogle className="size-5 mr-2" />
+                    Sign Up With Google
+                </Button>
                 <Button
-                        onClick={() => signUpWithGithub()}  
-                        disabled={isPending}
-                        variant={'secondary'}
-                        size='lg'
-                        className="w-full"
-                    >
-                        <FaGithub className="size-5 mr-2"/>
-                        Sign Up With GitHub
-                    </Button>
+                    onClick={() => signUpWithGithub()}
+                    disabled={isPending}
+                    variant={'secondary'}
+                    size='lg'
+                    className="w-full"
+                >
+                    <FaGithub className="size-5 mr-2" />
+                    Sign Up With GitHub
+                </Button>
             </CardContent>
             <div className="px-7">
-                    <DottedSeperator />
-                </div>
-                <CardContent className="p-7 flex items-center justify-center">
-                    <p>
-                        Already have an account?{" "}
-                        <Link href={'/sign-in'}>
-                            <span className="text-blue-700">Sign In</span>
-                            </Link>
-                    </p>
-                </CardContent>
+                <DottedSeperator />
+            </div>
+            <CardContent className="p-7 flex items-center justify-center">
+                <p>
+                    Already have an account?{" "}
+                    <Link href={'/sign-in'}>
+                        <span className="text-blue-700">Sign In</span>
+                    </Link>
+                </p>
+            </CardContent>
         </Card>
     );
 };
